@@ -1,11 +1,14 @@
 ﻿@page "/"
+@if (ToDoItems is not null)
+{
+    Notes:
+    <ul>
 
-Notes:
-<ul>
-@if (ToDoItems is not null) {
-    foreach (var item in ToDoItems)
-    {
-        <li>@item.Notes</li>
-    }
+        @foreach (var item in ToDoItems)
+        {
+            <li>@item.Notes
+                <button type="button" @onclick="() => EditNote(item)">Edit</button>
+            </li>
+        }
+    </ul>
 }
-</ul>

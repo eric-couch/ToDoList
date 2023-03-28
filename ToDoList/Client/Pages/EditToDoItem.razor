@@ -1,0 +1,29 @@
+﻿@page "/edit-todo-item/{Id:int}"
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+@using ToDoList.Shared
+
+<h3>EditToDoItem</h3>
+
+<EditForm Model="@UserToDoItem" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <InputText class="form-control" id="Title" @bind-Value="UserToDoItem.Title" />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">DueDate</label>
+        <InputDate class="form-control" id="DueDate" @bind-Value="UserToDoItem.DueDate" />
+    </div>
+    <div class="form-group">
+        <InputCheckbox class="form-check-input" id="Completed" @bind-Value="UserToDoItem.Completed" />
+        <label for="Completed">Completed</label>
+    </div>
+    <div class="form-group">
+        <label for="Notes">Notes</label>
+        <InputTextArea class="form-control" id="Notes" @bind-Value="UserToDoItem.Notes" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>

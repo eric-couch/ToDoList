@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Server", "ToDoList\Server\ToDoList.Server.csproj", "{8F144C86-3CE7-44C7-B266-5FA3D2E341BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Server", "ToDoList\Server\ToDoList.Server.csproj", "{8F144C86-3CE7-44C7-B266-5FA3D2E341BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Client", "ToDoList\Client\ToDoList.Client.csproj", "{C707E4F6-1FB0-417C-809E-AF34BC11F7A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Client", "ToDoList\Client\ToDoList.Client.csproj", "{C707E4F6-1FB0-417C-809E-AF34BC11F7A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Shared", "ToDoList\Shared\ToDoList.Shared.csproj", "{A0BDF429-A110-455E-93BB-AAF408E63FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Shared", "ToDoList\Shared\ToDoList.Shared.csproj", "{A0BDF429-A110-455E-93BB-AAF408E63FFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

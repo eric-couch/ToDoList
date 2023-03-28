@@ -14,7 +14,7 @@ namespace ToDoList.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-
+        
         public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
         public DbSet<ChecklistItem> ChecklistItems => Set<ChecklistItem>();
     }

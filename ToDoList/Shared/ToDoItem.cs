@@ -14,7 +14,7 @@ namespace ToDoList.Shared
         public ToDoType Type { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime? DueDate { get; set; }
-        public bool? Completed { get; set; }
+        public bool Completed { get; set; }
         public string ApplicationUserId { get; set; }
 
         public List<ChecklistItem>? Checklist { get; set; }
