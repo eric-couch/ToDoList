@@ -10,6 +10,8 @@ namespace ToDoList.Shared
     public class ToDoItem
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please enter a Title.")]
+        [StringLength(50, ErrorMessage = "Title must be less than 50 characters.")]
         public string Title { get; set; }
         public ToDoType Type { get; set; }
         public DateTime CreateAt { get; set; }

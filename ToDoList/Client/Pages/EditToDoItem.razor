@@ -12,18 +12,22 @@
     <div class="form-group">
         <label for="Title">Title</label>
         <InputText class="form-control" id="Title" @bind-Value="UserToDoItem.Title" />
+        <ValidationMessage For="@(() => UserToDoItem.Title)" />
     </div>
     <div class="form-group">
         <label for="DueDate">DueDate</label>
         <InputDate class="form-control" id="DueDate" @bind-Value="UserToDoItem.DueDate" />
+        <ValidationMessage For="@(() => UserToDoItem.DueDate)" />
     </div>
     <div class="form-group">
         <InputCheckbox class="form-check-input" id="Completed" @bind-Value="UserToDoItem.Completed" />
         <label for="Completed">Completed</label>
+        <ValidationMessage For="@(() => UserToDoItem.Completed)" />
     </div>
     <div class="form-group">
         <label for="Notes">Notes</label>
         <InputTextArea class="form-control" id="Notes" @bind-Value="UserToDoItem.Notes" />
+        <ValidationMessage For="@(() => UserToDoItem.Notes)" />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </EditForm>

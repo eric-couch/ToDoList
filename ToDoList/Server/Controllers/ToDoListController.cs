@@ -54,6 +54,7 @@ namespace ToDoList.Server.Controllers
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
             todoItem.ApplicationUserId = user.Id;
+            todoItem.CreateAt = DateTime.Now;
             _context.ToDoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
