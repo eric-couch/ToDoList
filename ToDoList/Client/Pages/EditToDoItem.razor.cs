@@ -13,26 +13,26 @@ public partial class EditToDoItem
     [Parameter]
     public int Id { get; set; }
     public ToDoItem UserToDoItem { get; set; } = new ToDoItem();
-    public ToDoItem ToDoItem { get; set; } = new ToDoItem();
 
     protected override async Task OnInitializedAsync()
     {
-        ToDoItem = await Http.GetFromJsonAsync<ToDoItem>($"api/todoitems/{Id}");
-        UserToDoItem = ToDoItem;
+        if (Id != 0)
+        {
+            UserToDoItem = await Http.GetFromJsonAsync<ToDoItem>($"api/todoitems/{Id}");
+        }
     }
 
     private async Task HandleValidSubmit()
     {
-        ToDoItem updateUserToDoItem = new ToDoItem
+        HttpResponseMessage? response = new();
+        if (Id == 0)
         {
-            Id = ToDoItem.Id,
-            ApplicationUserId = ToDoItem.ApplicationUserId,
-            Title = UserToDoItem.Title,
-            DueDate = UserToDoItem.DueDate,
-            Completed = UserToDoItem.Completed,
-            Notes = UserToDoItem.Notes
-        };
-        var response = await Http.PutAsJsonAsync($"api/todoitems/{Id}", updateUserToDoItem);
+            response = await Http.PostAsJsonAsync($"api/todoitems", UserToDoItem);
+        } else
+        {
+            response = await Http.PutAsJsonAsync($"api/todoitems/{Id}", UserToDoItem);
+        }
+
         if (response.IsSuccessStatusCode)
         {
             NavigationManager.NavigateTo("/");

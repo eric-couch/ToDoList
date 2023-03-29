@@ -27,4 +27,13 @@ public partial class Index
     {
         NavigationManager.NavigateTo($"/edit-todo-item/{todoItem.Id}");
     }
+
+    private async Task AddNote()
+    {
+        ToDoItem? todoItem = new ToDoItem()
+        {
+            Id = 0
+        };
+        NavigationManager.NavigateTo($"/edit-todo-item/{todoItem.Id}");
+    }
 }

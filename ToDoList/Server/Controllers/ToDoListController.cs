@@ -48,14 +48,26 @@ namespace ToDoList.Server.Controllers
 
             return todoItem;
         }
-        //api/todoitems/{Id}
-        [HttpPut("api/todoitems/{id}")]
-        public async Task<IActionResult> PutToDoItem([FromBody] ToDoItem todoItem)
+
+        [HttpPost("api/todoitems/")]
+        public async Task<IActionResult> PostToDoItem([FromBody] ToDoItem todoItem)
         {
-            //if (id != todoItem.Id)
-            //{
-            //    return BadRequest();
-            //}
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            todoItem.ApplicationUserId = user.Id;
+            _context.ToDoItems.Add(todoItem);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetToDoItem", new { id = todoItem.Id }, todoItem);
+        }
+
+
+        [HttpPut("api/todoitems/{id}")]
+        public async Task<IActionResult> PutToDoItem(int id, [FromBody] ToDoItem todoItem)
+        {
+            if (id != todoItem.Id)
+            {
+                return BadRequest();
+            }
 
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
 
